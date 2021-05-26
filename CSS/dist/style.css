@@ -1,0 +1,280 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+:root {
+  --linear: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  --bright-blue: hsl(220, 98%, 61%);
+  --font-size: 18px;
+  --border-radius: 5px;
+  --transition: all 0.2s ease-in-out;
+  --margin-bottom: 30px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.light {
+  background-image: url("../../images/bg-desktop-light.jpg");
+  --main-color: hsl(0, 0%, 98%);
+  --secondry-color: hsl(233, 11%, 84%);
+  --header-font-color: hsl(235, 19%, 35%);
+  --font-color-primary: hsl(236, 9%, 61%);
+  --font-color-secondry: hsl(235, 19%, 35%);
+  --back-ground-color: hsl(0, 0%, 98%);
+  --box-shadow: 1px 1px 20px hsl(236, 9%, 61%);
+  --circle-border: 1px solid hsl(233, 11%, 84%);
+  --filter-primary-color: hsl(233, 11%, 84%);
+  --filter-secondry-color: hsl(236, 9%, 61%);
+}
+
+.dark {
+  background-image: url("../../images/bg-desktop-dark.jpg");
+  --main-color: hsl(235, 24%, 19%);
+  --secondry-color: hsl(233, 11%, 84%);
+  --header-font-color: hsl(236, 9%, 61%);
+  --font-color-primary: hsl(236, 33%, 92%);
+  --font-color-secondry: hsl(236, 9%, 61%);
+  --back-ground-color: hsl(235, 21%, 11%);
+  --box-shadow: 1px 1px 20px hsl(235, 21%, 11%);
+  --circle-border: 1px solid hsl(235, 19%, 35%);
+  --filter-primary-color: hsl(236, 9%, 61%);
+  --filter-secondry-color: hsl(236, 33%, 92%);
+}
+
+body {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: var(--back-ground-color);
+  height: 100vh;
+  font-family: "Josefin Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.contianer {
+  height: 400px;
+  width: 500px;
+  margin: 5%;
+}
+.contianer .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: var(--margin-bottom);
+}
+.contianer .header h1 {
+  color: #fafafa;
+  letter-spacing: 10px;
+}
+.contianer .header img {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  transition: var(--transition);
+}
+.contianer .circle {
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+  margin-right: 20px;
+  border: var(--circle-border);
+  border-radius: 50%;
+  position: relative;
+}
+.contianer .circle:hover {
+  background-image: var(--linear);
+  border: none;
+}
+.contianer .circle::before {
+  content: "";
+  width: 90%;
+  height: 90%;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: var(--transition);
+}
+.contianer .compeleted {
+  border: none;
+}
+.contianer .compeleted::after {
+  content: url("../../images/icon-check.svg");
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  line-height: 25px;
+  border-radius: 50%;
+  background-image: var(--linear);
+  transition: var(--transition);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+.contianer .create-section {
+  width: 100%;
+  padding: 20px 30px;
+  margin-bottom: var(--margin-bottom);
+  background-color: var(--main-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  transition: var(--transition);
+}
+.contianer .create-section .create-input {
+  color: var(--header-font-color);
+  background-color: var(--main-color);
+  border: none;
+  outline: none;
+  width: 80%;
+  height: 100%;
+  font-size: var(--font-size);
+  caret-color: var(--bright-blue);
+  transition: var(--transition);
+}
+.contianer .todo-container {
+  height: 100%;
+  width: 100%;
+  border-radius: var(--border-radius);
+  background-color: var(--main-color);
+  box-shadow: var(--box-shadow);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  transition: var(--transition);
+}
+.contianer .todo-container .todo-list {
+  width: 100%;
+  overflow-y: auto;
+}
+.contianer .todo-container .todo-list .todo {
+  color: var(--font-color-secondry);
+  padding: 20px 30px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  cursor: grab;
+}
+.contianer .todo-container .todo-list .todo:hover img {
+  opacity: 1;
+}
+.contianer .todo-container .todo-list .todo .todo-text {
+  line-height: 25px;
+  color: var(--font-color-secondry);
+}
+.contianer .todo-container .todo-list .todo img {
+  cursor: pointer;
+  opacity: 0;
+  transition: var(--transition);
+}
+.contianer .todo-container .todo-list .todo:not(:last-of-type) {
+  border-bottom: 1px solid var(--secondry-color);
+}
+.contianer .todo-container .todo-list .done .todo-text {
+  color: var(--secondry-color);
+  text-decoration: line-through;
+}
+.contianer .todo-container .filter {
+  cursor: pointer;
+  width: 100%;
+  padding: 20px 30px;
+  font-size: 14px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  text-transform: capitalize;
+  border-top: 1px solid var(--secondry-color);
+  position: relative;
+}
+.contianer .todo-container .filter .left-items {
+  font-size: 12px;
+  color: var(--font-color-secondry);
+}
+.contianer .todo-container .filter .filter-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 45px;
+  font-weight: bold;
+}
+.contianer .todo-container .filter .filter-container span {
+  color: var(--filter-primary-color);
+  transition: var(--transition);
+}
+.contianer .todo-container .filter .filter-container span:hover {
+  color: var(--filter-secondry-color);
+}
+.contianer .todo-container .filter .filter-container .active {
+  color: var(--bright-blue);
+}
+.contianer .todo-container .filter .filter-container .active:hover {
+  color: var(--bright-blue);
+}
+.contianer .todo-container .filter .clear {
+  color: var(--font-color-primary);
+}
+.contianer .todo-container .filter .clear:hover {
+  color: var(--font-color-secondry);
+}
+.contianer > .filter-container {
+  width: 100%;
+  margin-top: 30px;
+  padding: 30px 20px;
+  background-color: var(--main-color);
+  justify-content: space-evenly;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  box-shadow: var(--box-shadow);
+  text-transform: capitalize;
+  cursor: pointer;
+  font-weight: bold;
+  display: none;
+}
+.contianer > .filter-container span {
+  color: var(--filter-primary-color);
+  transition: var(--transition);
+}
+.contianer > .filter-container span:hover {
+  color: var(--filter-secondry-color);
+}
+.contianer > .filter-container .active {
+  color: var(--bright-blue);
+}
+.contianer > .filter-container .active:hover {
+  color: var(--bright-blue);
+}
+.contianer .drag {
+  color: var(--font-color-secondry);
+  margin-top: 50px;
+  text-align: center;
+}
+
+@media (max-width: 750px) {
+  .light {
+    background-image: url("../../images/bg-mobile-light.jpg");
+  }
+
+  .dark {
+    background-image: url("../../images/bg-mobile-dark.jpg");
+  }
+
+  .contianer {
+    height: 350px;
+    width: 450px;
+  }
+  .contianer .todo-container .filter {
+    display: flex;
+    justify-content: space-between;
+  }
+  .contianer .todo-container .filter .filter-container {
+    display: none;
+  }
+  .contianer > .filter-container {
+    display: flex;
+  }
+}

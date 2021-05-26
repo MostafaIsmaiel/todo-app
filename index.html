@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="CSS/dist/style.css" />
+    <title>Todo app</title>
+  </head>
+
+  <body class="light">
+    <div class="contianer">
+      <div class="header">
+        <h1>TODO</h1>
+        <img src="images/icon-moon.svg" class="theme-img" id="theme" />
+      </div>
+      <form id="form">
+        <div id="create-section" class="create-section">
+          <div class="circle" id="circle"></div>
+          <input
+            type="text"
+            id="create-input"
+            class="create-input"
+            maxlength="40"
+          />
+        </div>
+      </form>
+
+      <div class="todo-container">
+        <div class="todo-list" id="todo-list"></div>
+        <div class="filter">
+          <div class="left-items">
+            <span id="items-count">5</span>
+            <span id="items">items</span>
+            <span>left</span>
+          </div>
+          <div class="filter-container">
+            <span class="active">all</span>
+            <span>active</span>
+            <span>compeleted</span>
+          </div>
+          <div id="clear" class="clear">clear compeleted</div>
+        </div>
+      </div>
+      <div class="filter-container">
+        <span class="active">all</span>
+        <span>active</span>
+        <span>compeleted</span>
+      </div>
+      <p class="drag">Drag and drop to reorder list</p>
+    </div>
+
+    <script src="script/jquery.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"
+    ></script>
+    <script src="script/Sortable.min.js"></script>
+    <script src="script/main.js"></script>
+  </body>
+</html>
